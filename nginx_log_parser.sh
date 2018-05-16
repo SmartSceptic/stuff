@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #!/bin/bash
 
 # variables
@@ -6,11 +5,33 @@ LOGFILE="/bin/vlad/access.log"
 LOGFILE_GZ="/var/log/nginx/access.log.*"
 RESPONSE_CODE="200"
 
-
-#    $0 — представляет всю строку текста (запись).
-#    $1 — первое поле.
-#    $2 — второе поле.
-#    $n — n-ное поле.
+: << HELP
+вывести с выравниваем столбцов можно так:
+  awk '{print $0}' /bin/vlad/access.log |column -t
+а вывисти с подписыванием полей - так:
+    request_ips(){
+      for (( i = 0; i < 29; i++ ))
+        do
+          eval " tail -1 $LOGFILE | awk '{print \"Field $i\" \" =      \" \$$i}'"
+        done
+    }
+$0 — представляет всю строку текста (запись).
+$1 —  remote adress первое поле.
+$2 — ? второе поле.
+$3 - ?
+$4  - [Time local
+$5  - отставания
+$6  - тип запроса (метод обработки данных) -GET -POST  -PUT  -DELETE
+$7  - линк куда ломимся
+$8  - протокол
+$9  - код ответа сервера
+$10 - размер (кол-во переданных байт)
+$11 - реферальная ссылка
+$12 - юзер агент
+... - поля юзер агента
+$20
+$n — n-ное поле.
+HELP
 
 # functions по тз не используется, но пусть будет...
  # отобрать все ответы содержащие указанный "код ответа"
@@ -135,7 +156,3 @@ get_request_methods
 get_request_pages
 get_request_pages_all
 get_request_pages_404
-=======
-bash code is here
-change this
->>>>>>> 461210b2e022ed9d018786cc92ab6cc56bcbaee1
