@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #!/bin/bash
 
 # variables
@@ -134,3 +135,7 @@ get_request_methods
 get_request_pages
 get_request_pages_all
 get_request_pages_404
+=======
+bash code is here
+change this
+>>>>>>> 461210b2e022ed9d018786cc92ab6cc56bcbaee1
