@@ -192,21 +192,42 @@ for i in "${TOPIP[@]}"
   done
 }
 
-
-
-separete_by_hour(){
-cat $LOGFILE ()
+#get numbers of requests per hour
+get_req(){
+day=$(tail -10 $LOGFILE |awk '{print $4}' | cut -c 2-3 | sort | uniq)
+min_h="00"
+max_h="23"
+i="$min_h"
+h="00"
+for gr in $day
+do
+echo "--------------------Day $gr------------------"
+while [ $i -le $max_h ]; do
+reqs=$(cat $file | grep "\["$gr | awk -F ":" '{print $2}' | grep "$h" | wc -l)
+echo "In time $h" " - " "$reqs request"
+i=$[i+1]
+if [ $i -le 10 ] && [ $i -ne 00 ]; then
+h=$(printf "%02d" $i); else
+h="$i"
+fi
+done
+i="00"
+h="00"
+done
 }
+
+
 
 
 
 ## executing
 #get_request_ips
 #get_tops_data
+get_req
 
-get_ips_send_data
 
 : << ADITIONAL_FITURES
+get_ips_send_data
 get_request_methods
 get_request_pages
 #get_request_pages_all
