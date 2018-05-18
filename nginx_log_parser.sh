@@ -1,9 +1,9 @@
 #!/bin/bash
 
 ## variables
-#/home/vlad/Desktop/access_log-20170726
+LOGFILE="/home/vlad/Desktop/access_log-20170726"
 TOP="5"
-LOGFILE="/bin/vlad/access.log"
+#LOGFILE="/bin/vlad/access.log"
 #LOGFILE_GZ="/var/log/nginx/access.log.*"
 RESPONSE_CODE="200"
 #declare -a TOPIP
@@ -219,10 +219,14 @@ count_send_data(){
 
     for i in "${TOPIP[@]}"
       do
-        echo "$i"
-        cat $LOGFILE |awk '{BEGIN { sum=0 } {if ( $5 ~ $i) { sum+=$10 } } END {print sum}'
+        echo " "
+        echo "This agent: $i"
+      cat $LOGFILE |awk -v cip="$i" '{{if (cip==$1) { sum+=$10 }}}END {print "sent " sum " bytes.."}'
+
       done
   }
+  #  echo 'hi' |awk -v iip="$i" -v var2="2" '{print iip}'
+  #    cat $LOGFILE |awk '{BEGIN { sum=0 } {if ( \$5 ~ $i) { sum+=\$10 } } END {print sum}'
 #eval "cat $LOGFILE |awk '{if (\$2=="$i") {sum+=\$10}} END {print sum}'"
 ## executing
 #get_request_ips
