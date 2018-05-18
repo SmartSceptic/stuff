@@ -11,5 +11,5 @@ for string in $(tail $LOGFILE | awk '{print $1 ,$10}')
       done
   done
 }
-cat $LOGFILE |awk '{print $1 ;print $10}' |sort |uniq -c |sort -n |tail
+cat $LOGFILE |awk '{print $1print $10}' |sort |uniq -c |sort -n |tail
 count_send_data

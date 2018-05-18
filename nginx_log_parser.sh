@@ -36,6 +36,11 @@ $12 - "$http_user_agent"здесь и далее поля юзер агента
 ... - поля юзер агента см здесь https://www.nginx.com/resources/wiki/modules/user_agent/#syntax
 $20 - продолжаются поля юзер агентов, см здесь https://habr.com/post/39715/
 $n — n-ное поле.
+массивы обьявляются и выводятся например так
+  declare -a arr=("element1" "element2" "element3")
+  do
+     echo "$i"
+  done
 HELP
 
 ## functions
@@ -93,15 +98,6 @@ return_top_ten(){
 head -$TOP
 }
 
-
-
-
-request_ips_and_data(){
-awk '{if (NF==4 && (index($2,"x.y.z")==1)) stats[$2]+=$4; else if (NF==2) print $2 "\t" stats[$1]}' $1 file-users
-}
-
-
-
 #выГРЕБаем часы из даты и счетчиком
 #сумируем количество обращений  пока час не поменялся
 #как только обнаруживаем смену часа выводим меседж и обнуляем счетчик
@@ -120,7 +116,6 @@ echo "===================="
 #!!!при реальном использовании помести эту строку в конвеер
 #если хочешь проанализировать вывод без хлама и с заданным кодом ответа (200) !!!
 #| filters \
-
 cat $LOGFILE \
 | request_ips \
 | wordcount \
@@ -180,58 +175,37 @@ zgrep '-' --no-filename $LOGFILE $LOGFILE_GZ \
 echo ""
 }
 
-get_tops_data(){
-echo "Top IP use : bytes of data:"
-echo "==================================="
+get_top_to_var(){
+TOPIP=($(
 cat $LOGFILE \
-|request_ips_and_data \
-|count_send_data
-echo ""
+| request_ips \
+| wordcount \
+| sort_desc \
+| return_only_version \
+| return_top_ten ))
 }
 
+get_ips_send_data(){
+get_top_to_var
+echo "How match data use Top IPS"
+echo "==================================="
+for i in "${TOPIP[@]}"
+  do
+    echo " "
+    echo "This agent: $i"
+    #awk '{if (NF==4 && (index($2,"x.y.z")==1)) stats[$2]+=$4; else if (NF==2) print $2 "\t" stats[$1]}' $1 file-users
+    #echo 'hi' |awk -v iip="$i" -v var2="2" '{print iip}'
+    #cat $LOGFILE |awk '{BEGIN { sum=0 } {if ( \$5 ~ $i) { sum+=\$10 } } END {print sum}'
+    #eval "cat $LOGFILE |awk '{if (\$2=="$i") {sum+=\$10}} END {print sum}'"
+  cat $LOGFILE |awk -v cip="$i" '{{if (cip==$1) { sum+=$10 }}}END {print "sent " sum " bytes.."}'
+  done
+}
 
-
-
-#for (( i = 0; i < $TOP ; i++ ))
-#  do
-#    echo $(awk '{print $2}')
-#    if awk '{print $2}'
-#    then
-#      echo "$tip"
-#    fi
-#  done
-#cat $LOGFILE | awk '{print $1}'\
-
-count_send_data(){
-  TOPIP=($(
-  cat $LOGFILE \
-  | request_ips \
-  | wordcount \
-  | sort_desc \
-  | return_only_version \
-  | return_top_ten ))
-
-  echo "test"
-#  declare -a arr=("element1" "element2" "element3")
-#  do
-#     echo "$i"
-#  done
-
-    for i in "${TOPIP[@]}"
-      do
-        echo " "
-        echo "This agent: $i"
-      cat $LOGFILE |awk -v cip="$i" '{{if (cip==$1) { sum+=$10 }}}END {print "sent " sum " bytes.."}'
-
-      done
-  }
-  #  echo 'hi' |awk -v iip="$i" -v var2="2" '{print iip}'
-  #    cat $LOGFILE |awk '{BEGIN { sum=0 } {if ( \$5 ~ $i) { sum+=\$10 } } END {print sum}'
-#eval "cat $LOGFILE |awk '{if (\$2=="$i") {sum+=\$10}} END {print sum}'"
 ## executing
 #get_request_ips
 #get_tops_data
-count_send_data
+
+get_ips_send_data
 
 : << ADITIONAL_FITURES
 get_request_methods
