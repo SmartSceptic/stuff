@@ -97,16 +97,6 @@ awk '{print $2}'
 return_top_ten(){
 head -$TOP
 }
-
-#выГРЕБаем часы из даты и счетчиком
-#сумируем количество обращений  пока час не поменялся
-#как только обнаруживаем смену часа выводим меседж и обнуляем счетчик
-#
-separete_by_hour(){
-echo " "
-}
-
-
 ## actions
 #получаем топ ip по количеству запросов
 get_request_ips(){
@@ -174,7 +164,7 @@ zgrep '-' --no-filename $LOGFILE $LOGFILE_GZ \
 | return_top_ten
 echo ""
 }
-
+#Помещаем топ всех N айпишников в массив TOPIP
 get_top_to_var(){
 TOPIP=($(
 cat $LOGFILE \
@@ -184,7 +174,8 @@ cat $LOGFILE \
 | return_only_version \
 | return_top_ten ))
 }
-
+#Получить список наичастейших айпишников (в массив TOPIP) и посчитат сколько
+#байт каждый из них сотворил
 get_ips_send_data(){
 get_top_to_var
 echo "How match data use Top IPS"
@@ -200,6 +191,14 @@ for i in "${TOPIP[@]}"
   cat $LOGFILE |awk -v cip="$i" '{{if (cip==$1) { sum+=$10 }}}END {print "sent " sum " bytes.."}'
   done
 }
+
+
+
+separete_by_hour(){
+cat $LOGFILE ()
+}
+
+
 
 ## executing
 #get_request_ips
