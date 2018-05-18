@@ -7,7 +7,8 @@ TOP="5"
 #LOGFILE_GZ="/var/log/nginx/access.log.*"
 RESPONSE_CODE="200"
 #declare -a TOPIP
-tmp=''
+tmp=""
+TIME_SEPARATOR="60"
 tmpd=''
 : << HELP
 вывести с выравниваем столбцов можно так:
@@ -192,9 +193,34 @@ for i in "${TOPIP[@]}"
   done
 }
 
-#get numbers of requests per hour
+get_timestamp_from_log(){
+echo ""
+#cat $LOGFILE |awk '{print $4}' |sed -e 's/^.//' -e 's,/,-,g' -e 's,:, ,'|date -f - +"%s"
+# cтрока должна переводить в таймштамп авк $
+awk 'BEGIN{FS="[][]"}{system("date \"+%s\" -d \""gensub("/", " ", "G", gensub(":", " ", "1", $2))"\"")}'
+}
+
+count_number_of_requests_per_hour(){
+#нужно убрать греп первого таймштампа отсюда и сделать его более адекватно
+first_timestamp=$(head -1 $LOGFILE |awk 'BEGIN{FS="[][]"}{system("date \"+%s\" -d \""gensub("/", " ", "G", gensub(":", " ", "1", $2))"\"")}')
+#tmp=$(($first_timestamp + $TIME_SEPARATOR))
+tmp=$(($first_timestamp+$TIME_SEPARATOR))
+cat $LOGFILE \
+|get_timestamp_from_log\
+|awk -v ts=$TIME_SEPARATOR -v tm=$tmp '{if ($0 <= tm){{counter++}} else { {print "за период до " tm " было совершено : " counter " обращений"  }{tm+=ts} {counter=0} }}  END{print counter}'
+# {print "CURENT " $0 " less then" ft+ts " counter =" counter}
+}
+
+#for ((i=0; i<
+#10000; i++)){
+#  echo " $i "
+#}
+
+
+
+#get numbers of requests per hour код кости работает быстрее моего
 get_req(){
-day=$(tail -10 $LOGFILE |awk '{print $4}' | cut -c 2-3 | sort | uniq)
+day=$(cat $LOGFILE |awk '{print $4}' | cut -c 2-3 | sort | uniq)
 min_h="00"
 max_h="23"
 i="$min_h"
@@ -203,7 +229,7 @@ for gr in $day
 do
 echo "--------------------Day $gr------------------"
 while [ $i -le $max_h ]; do
-reqs=$(cat $file | grep "\["$gr | awk -F ":" '{print $2}' | grep "$h" | wc -l)
+reqs=$(cat $LOGFILE | grep "\["$gr | awk -F ":" '{print $2}' | grep "$h" | wc -l)
 echo "In time $h" " - " "$reqs request"
 i=$[i+1]
 if [ $i -le 10 ] && [ $i -ne 00 ]; then
@@ -221,13 +247,21 @@ done
 
 
 ## executing
+
+
 #get_request_ips
-#get_tops_data
-get_req
+
+#сколько данных отослали ip из top 5
+#get_ips_send_data
+
+#код кости hаботает быстрее :(
+#get_req
+
+#количество запросов за еденицу времени (TIME_SEPARATOR)
+count_number_of_requests_per_hour
 
 
 : << ADITIONAL_FITURES
-get_ips_send_data
 get_request_methods
 get_request_pages
 #get_request_pages_all
