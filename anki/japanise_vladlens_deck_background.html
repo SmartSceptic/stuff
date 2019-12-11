@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="frontbg">
+
+    <div class=top_metadata>
+      L {{Chapter Number}}  {{#Frequency Ranking}} №{{Frequency Ranking}} {{/Frequency Ranking}}
+    </div>
+    {{#Reading}} {{furigana:Reading}} {{/Reading}} {{#Mnemonic}}{{Mnemonic}}{{/Mnemonic}}
+    <div class="small_hint">
+      {{#Reading}}{{Reading}};{{/Reading}}
+      {{#Pitch Accent}}{{furigana:Pitch Accent}} {{/Pitch Accent}}
+    </div>
+
+    <div class="backbg">
+      <div class=defbg>
+        <span class=jp>{{Meaning}}</span>
+        <br>
+        {{#Comment}} {{furigana:Comment}}  {{/Comment}}
+
+        {{#Usage}}<details open>
+          <summary>Usage</summary>
+          <span class=jp>{{furigana:Usage}}}</span>  <br>
+          {{#Usage Reading}}{{Usage Reading}}<br>{{/Usage Reading}}
+          {{#Usage Meaning}}{{Usage Meaning}}<br>{{/Usage Meaning}}
+        {{/Usage}}</details>
+
+        <hr id=answer>
+      </div>
+
+      <div class=hint>
+        {{#Synonym(s)}} <span style="float:left;"> S:{{furigana:Synonym(s)}} </span> {{/Synonym(s)}}
+        {{#Antonym(s)}} <span style="float:right;">A: {{furigana:Antonym(s)}} </span> {{/Antonym(s)}}
+      </div>
+      {{#Stroke Order Diagrams}} {{Stroke Order Diagrams}}<br>{{/Stroke Order Diagrams}}
+      {{#Kanji Mnemonic}}{{Kanji Mnemonic}}{{/Kanji Mnemonic}}
+    </div>
+  </div>
+</div>

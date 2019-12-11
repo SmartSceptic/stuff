@@ -1,0 +1,130 @@
+html {
+background: url("http://www.webdesigndev.com/wp-content/uploads/2015/02/Seamless-Polygon-Backgrounds-Vol.jpg");
+}
+
+.card {
+font-family: Helvetica;
+font-size: 40px;
+text-align: center; color: black;
+}
+
+.jp {
+font-size: 30px
+}
+
+.win .jp {
+font-family: "MS Mincho", "ＭＳ 明朝";
+}
+
+.mac .jp {
+font-family: "Hiragino Mincho Pro", "ヒラギノ明朝 Pro";
+}
+
+.linux .jp {
+font-family: "TakaoPGothic";
+}
+
+.mobile .jp {
+font-family: myfont;
+}
+
+.hint {
+font-size: 25px;
+line-height: 5px;
+padding-bottom: 30px;
+line-height: 110%;
+
+}
+
+.win .hint {
+font-family: "MS Mincho", "ＭＳ 明朝";
+}
+
+.mac .hint {
+font-family: "Hiragino Mincho Pro", "ヒラギノ明朝 Pro";
+}
+
+.linux .hint {
+font-family: "TakaoPGothic";
+}
+
+.mobile .hint {
+font-family: myfont;
+}
+
+.small_hint {
+font-size: 16px;
+line-height: 15px;
+padding-bottom: 10px;
+line-height: 110%;
+}
+
+.win .small_hint {
+font-family: "MS Mincho", "ＭＳ 明朝";
+}
+
+.mac .small_hint {
+font-family: "Hiragino Mincho Pro", "ヒラギノ明朝 Pro";
+}
+
+.linux .small_hint {
+font-family: "TakaoPGothic";
+}
+
+.mobile .small_hint {
+font-family: myfont;
+}
+
+@font-face {
+font-family: myfont; src: url('_TakaoPGothic.ttf');
+}
+
+.top_metadata {
+font-size: 10px;
+line-height: 5px;
+padding-top: 5px;
+padding-right: 5px;
+text-align: right;
+}
+
+.frontbg {
+border: 1px 1px 1px 0px black;
+background-color: #18adab;
+border-radius: 7px;
+color: #fff;
+position: relative;
+left: 0;
+}
+
+.backbg {
+position: relative;
+top: -3px;
+background-color: #fff;
+padding: 15px;
+padding-bottom: 15px;
+padding-left: 30px;
+padding-right: 30px;
+border-radius: 0px 0px 10px 10px;
+color: #016ea6;
+font-size: 28px;
+text-align: left;
+}
+
+.defbg {
+font-family: Raleway;
+font-style: italic;
+padding: 1px;
+margin-left: -5px;
+margin-top: -1px;
+color: #18adab;
+font-size: 15px;
+}
+
+.hidden {visibility: hidden; font-size: 0;}
+.hidden .cloze, .cloze .hidden {visibility: visible; background-color: white;font-size: 0.8rem;}
+@-moz-document url-prefix() {ruby {position: relative;display: inline-block;}
+ruby rt {position: absolute;display: block;font-size: 0.5em;left: -50%;bottom: 115%;width: 210%;padding: 0;text-align: center;line-height:1em}}
+.hidden .basemaru {position:relative;}
+.hidden .basemaru:after {content: "◯"; visibility: visible; position:absolute; left:0;}
+.hidden .cloze .basemaru:after, .cloze .hidden .basemaru:after {visibility: hidden;}
+div{line-height: 2em;} .cloze_container .hidden {visibility: visible; background-color: white;}
