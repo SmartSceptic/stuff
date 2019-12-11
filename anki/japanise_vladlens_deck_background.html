@@ -6,8 +6,9 @@
     </div>
     {{#Reading}} {{furigana:Reading}} {{/Reading}} {{#Mnemonic}}{{Mnemonic}}{{/Mnemonic}}
     <div class="small_hint">
-      {{#Reading}}{{Reading}};{{/Reading}}
-      {{#Pitch Accent}}{{furigana:Pitch Accent}} {{/Pitch Accent}}
+      {{#Pitch Accent}}{{furigana:Pitch Accent}}<br> {{/Pitch Accent}}
+      {{#Reading}}{{furigana:Reading}}{{/Reading}}
+      {{Pronunciation (Recording)}}
     </div>
 
     <div class="backbg">
@@ -19,7 +20,7 @@
         {{#Usage}}<details open>
           <summary>Usage</summary>
           <span class=jp>{{furigana:Usage}}}</span>  <br>
-          {{#Usage Reading}}{{Usage Reading}}<br>{{/Usage Reading}}
+          {{#Usage Reading}}{{furigana:Usage Reading}}<br>{{/Usage Reading}}
           {{#Usage Meaning}}{{Usage Meaning}}<br>{{/Usage Meaning}}
         {{/Usage}}</details>
 
