@@ -13,7 +13,10 @@
 
     <div class="backbg">
       <div class=defbg>
-        <span class=jp>{{Meaning}}</span>
+
+        {{^Meaning RUS}}{{Meaning}}{{/Meaning RUS}}
+        {{#Meaning RUS}}{{Meaning RUS}}{{/Meaning RUS}}
+
         <br>
         {{#Comment}} {{furigana:Comment}}  {{/Comment}}
 
