@@ -3,9 +3,14 @@
 -->
 <div class="card">
   <div class="frontbg">
-    <div style='font-family: Arial; font-size: 15px;'>{{Meaning}} {{#Mnemonic}}{{Mnemonic}}{{/Mnemonic}}</div>
+    <div style='font-family: Arial; font-size: 15px;'>
+      {{^Meaning RUS}}{{Meaning}}{{/Meaning RUS}}
+      {{#Meaning RUS}}{{Meaning RUS}}{{/Meaning RUS}}
+      {{#Mnemonic}}{{Mnemonic}}{{/Mnemonic}}
+    </div>
   </div>
 </div>
+
 
 <!--
   Чтение в описание
