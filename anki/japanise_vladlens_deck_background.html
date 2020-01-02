@@ -4,11 +4,19 @@
     <div class=top_metadata>
       L {{Chapter Number}}  {{#Frequency Ranking}} №{{Frequency Ranking}} {{/Frequency Ranking}}
     </div>
-    {{#Reading}} {{furigana:Reading}} {{/Reading}} {{#Mnemonic}}{{Mnemonic}}{{/Mnemonic}}
+    {{#Reading}} {{furigana:Reading}} {{/Reading}}
     <div class="small_hint">
       {{#Pitch Accent}}{{furigana:Pitch Accent}}<br> {{/Pitch Accent}}
       {{#Reading}}{{furigana:Reading}}{{/Reading}}
       {{Pronunciation (Recording)}}
+    </div>
+    <div style='font-family: Arial; font-size: 15px;'>
+    {{#Mnemonic}}
+      <details >
+        <summary>Mnemonic</summary>
+            {{Mnemonic}}
+      </details>
+    {{/Mnemonic}}
     </div>
 
     <div class="backbg">
