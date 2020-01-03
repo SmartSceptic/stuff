@@ -6,12 +6,14 @@
     <div style='font-family: Arial; font-size: 15px;'>
       {{^Meaning RUS}}{{Meaning}}{{/Meaning RUS}}
       {{#Meaning RUS}}{{Meaning RUS}}{{/Meaning RUS}}
-      {{#Mnemonic}}
-        <details >
-          <summary>Mnemonic</summary>
-              {{Mnemonic}}
-        </details>
-      {{/Mnemonic}}
+      <div style='font-family: Arial; font-size: 15px;'>
+        {{#Mnemonic}}
+          <details >
+            <summary>Mnemonic</summary>
+                {{Mnemonic}}
+          </details>
+        {{/Mnemonic}}
+      </div>
     </div>
   </div>
 </div>
@@ -23,12 +25,14 @@
 <div class="card">
   <div class="frontbg">
     <div style='font-family: Arial; font-size: 30px;'>{{furigana:Reading}}
-      {{#Mnemonic}}
-        <details >
-          <summary>Mnemonic</summary>
-              {{Mnemonic}}
-        </details>
-      {{/Mnemonic}}
+      <div style='font-family: Arial; font-size: 15px;'>
+        {{#Mnemonic}}
+          <details >
+            <summary>Mnemonic</summary>
+                {{Mnemonic}}
+          </details>
+        {{/Mnemonic}}
+      </div>
     </div>
     {{Pronunciation (Recording)}}
   </div>
@@ -42,12 +46,14 @@
   <div class="frontbg">
     {{#Stroke Order Diagrams}}
       {{ffurigana:Expression}}
-      {{#Mnemonic}}
-        <details >
-          <summary>Mnemonic</summary>
-              {{Mnemonic}}
-        </details>
-      {{/Mnemonic}}
+       <div style='font-family: Arial; font-size: 15px;'>
+        {{#Mnemonic}}
+          <details >
+            <summary>Mnemonic</summary>
+                {{Mnemonic}}
+          </details>
+        {{/Mnemonic}}
+      </div>
       {{#Kanji Mnemonic}}{{Kanji Mnemonic}}{{/Kanji Mnemonic}}
     {{/Stroke Order Diagrams}}
   </div>
