@@ -21,29 +21,24 @@
 
     <div class="backbg">
       <div class=defbg>
-
         {{^Meaning RUS}}{{Meaning}}{{/Meaning RUS}}
         {{#Meaning RUS}}{{Meaning RUS}}{{/Meaning RUS}}
-
         <br>
         {{#Comment}} {{furigana:Comment}}  {{/Comment}}
-
         {{#Usage}}<details open>
           <summary>Usage</summary>
           <span class=jp>{{furigana:Usage}}}</span>
           {{#Usage Reading}}{{furigana:Usage Reading}}{{/Usage Reading}}
           {{#Usage Meaning}}{{Usage Meaning}}{{/Usage Meaning}}
         </details>  {{/Usage}}
-
         <hr id=answer>
       </div>
 
       <div class=hint>
-        {{#Homograph(s)}} <span style="float:left;"> H-graph(s):{{furigana:Homograph(s)}} </span> {{/Homograph(s)}}
-        {{#Homophone(s)}} <span style="float:left;">H-phone(s): {{furigana:Homophone(s)}}{{/Homophone(s)}}
-        {{#Synonym(s)}} <span style="float:left;"> S:{{furigana:Synonym(s)}} </span> {{/Synonym(s)}}
-        {{#Antonym(s)}} <span style="float:right;">A: {{furigana:Antonym(s)}} </span> {{/Antonym(s)}}
-
+        {{#Homograph(s)}} H-graph(s): {{furigana:Homograph(s)}} {{/Homograph(s)}}
+        {{#Homophone(s)}} H-phone(s): {{furigana:Homophone(s)}} {{/Homophone(s)}}
+        {{#Synonym(s)}} S: {{furigana:Synonym(s)}} {{/Synonym(s)}}
+        {{#Antonym(s)}} A: {{furigana:Antonym(s)}} {{/Antonym(s)}}
       </div>
       {{#Stroke Order Diagrams}} {{Stroke Order Diagrams}}<br>{{/Stroke Order Diagrams}}
       {{#Kanji Mnemonic}}{{Kanji Mnemonic}}{{/Kanji Mnemonic}}
