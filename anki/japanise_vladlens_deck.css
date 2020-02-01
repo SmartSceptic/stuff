@@ -75,12 +75,19 @@ font-family: "TakaoPGothic";
 font-family: myfont;
 }
 
+.tiny_hint {
+font-size: 10px;
+line-height: 15px;
+padding-bottom: 10px;
+line-height: 110%;
+}
+
 @font-face {
 font-family: myfont; src: url('_TakaoPGothic.ttf');
 }
 
 .top_metadata {
-font-size: 10px;
+font-size: 14px;
 line-height: 5px;
 padding-top: 5px;
 padding-right: 5px;
@@ -88,6 +95,7 @@ text-align: right;
 }
 
 .frontbg {
+
 border: 1px 1px 1px 0px black;
 background-color: #18adab;
 border-radius: 7px;
@@ -97,7 +105,6 @@ left: 0;
 }
 
 .backbg {
-position: relative;
 top: -3px;
 background-color: #fff;
 padding: 15px;
@@ -111,6 +118,7 @@ text-align: left;
 }
 
 .defbg {
+
 font-family: Raleway;
 font-style: italic;
 padding: 1px;

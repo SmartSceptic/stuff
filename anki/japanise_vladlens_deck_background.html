@@ -10,7 +10,7 @@
       {{#Reading}}{{furigana:Reading}}{{/Reading}}
       {{Pronunciation (Recording)}}
     </div>
-    <div style='font-family: Arial; font-size: 15px;'>
+    <div  class=tiny_hint >
     {{#Mnemonic}}
       <details >
         <summary>Mnemonic</summary>
@@ -21,25 +21,34 @@
 
     <div class="backbg">
       <div class=defbg>
+
         {{^Meaning RUS}}{{Meaning}}{{/Meaning RUS}}
         {{#Meaning RUS}}{{Meaning RUS}}{{/Meaning RUS}}
+
         <br>
         {{#Comment}} {{furigana:Comment}}  {{/Comment}}
+
         {{#Usage}}<details open>
           <summary>Usage</summary>
           <span class=jp>{{furigana:Usage}}}</span>
           {{#Usage Reading}}{{furigana:Usage Reading}}{{/Usage Reading}}
           {{#Usage Meaning}}{{Usage Meaning}}{{/Usage Meaning}}
         </details>  {{/Usage}}
-        <hr id=answer>
       </div>
 
-      <div class=hint>
-        {{#Homograph(s)}} H-graph(s): {{furigana:Homograph(s)}} {{/Homograph(s)}}
-        {{#Homophone(s)}} H-phone(s): {{furigana:Homophone(s)}} {{/Homophone(s)}}
-        {{#Synonym(s)}} S: {{furigana:Synonym(s)}} {{/Synonym(s)}}
-        {{#Antonym(s)}} A: {{furigana:Antonym(s)}} {{/Antonym(s)}}
+      <hr id=answer>
+
+      <div class=tiny_hint>
+        <details open>
+        <summary>Others like </summary>
+          {{#Homograph(s)}}  H-graph(s):{{furigana:Homograph(s)}} {{/Homograph(s)}}
+          {{#Homophone(s)}} H-phone(s): {{furigana:Homophone(s)}}{{/Homophone(s)}}
+          {{#Synonym(s)}} S:{{furigana:Synonym(s)}} {{/Synonym(s)}}
+          {{#Antonym(s)}} A: {{furigana:Antonym(s)}} {{/Antonym(s)}}
+        </details>
       </div>
+
+ <hr id=answer>
       {{#Stroke Order Diagrams}} {{Stroke Order Diagrams}}<br>{{/Stroke Order Diagrams}}
       {{#Kanji Mnemonic}}{{Kanji Mnemonic}}{{/Kanji Mnemonic}}
     </div>
