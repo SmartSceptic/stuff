@@ -1,0 +1,47 @@
+<!--
+Значение в описание
+-->
+<div class="card">
+  <div class="frontbg">
+    <div class=top_metadata>
+        {{#Radical Number}} № {{Radical Number}} {{/Radical Number}}; {{#Numbers of Stroke}} Stroke {{Numbers of Stroke}} {{/Numbers of Stroke}} {{#Tags}}{{Tags}}{{/Tags}}
+    </div>
+    Draw:{{#Meaning RUS}} {{Meaning RUS}} {{/Meaning RUS}} <br> {{#Meaning}} {{Meaning}} {{/Meaning}}
+  </div>
+</div>
+
+<!--
+Радикал в описание
+-->
+<div class="card">
+  <div class="frontbg">
+    <div class=top_metadata>
+        {{#Radical Number}} № {{Radical Number}} {{/Radical Number}}; {{#Numbers of Stroke}} Stroke {{Numbers of Stroke}} {{/Numbers of Stroke}} {{#Tags}}{{Tags}}{{/Tags}}
+    </div>
+	 {{#Radical}} {{Radical}} {{/Radical}}
+  </div>
+</div>
+
+<!--
+Alternative в описание
+-->
+  {{#Alternative form}}
+<div class="card">
+  <div class="frontbg">
+    <div class=top_metadata>
+        {{#Radical Number}} № {{Radical Number}} {{/Radical Number}}; {{#Numbers of Stroke}} Stroke {{Numbers of Stroke}} {{/Numbers of Stroke}} {{#Tags}}{{Tags}}{{/Tags}}
+    </div>
+        {{Alternative form}}
+  </div>
+</div>
+  {{/Alternative form}}
+
+
+{{#Radical}} {{Radical}} {{/Radical}}
+{{#Reading}} {{Reading}} {{/Reading}}
+{{#Examplee}} {{Examplee}} {{/Examplee}}
+{{#Alternative form}} {{Alternative form}} {{/Alternative form}}
+{{#Meaning RUS}} {{Meaning RUS}} {{/Meaning RUS}}
+{{#Meaning}} {{Meaning}} {{/Meaning}}
+{{#Numbers of Stroke}} {{Numbers of Stroke}} {{/Numbers of Stroke}}
+{{#Radical Number}} {{Radical Number}} {{/Radical Number}}

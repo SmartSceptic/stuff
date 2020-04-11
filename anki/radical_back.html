@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="frontbg">
+
+    <div class=top_metadata>
+        {{#Radical Number}} № {{Radical Number}} {{/Radical Number}};
+        {{#Numbers of Stroke}} Stroke {{Numbers of Stroke}}{{/Numbers of Stroke}}{{#Tags}}{{Tags}}{{/Tags}}
+    </div>
+
+     <div class="stroke_order">
+	{{#Radical}} {{Radical}} {{/Radical}}
+     </div>
+
+    <div class="small_hint">
+      {{#Alternative form}}<div class="stroke_order">Alt:{{Alternative form}} </div>{{/Alternative form}}
+      <br>
+      {{#Reading}} {{Reading}} {{/Reading}}
+      {{#Examplee}} {{Examplee}} {{/Examplee}}
+
+    </div>
+
+    <div class="backbg">
+      <div class=defbg>
+	{{#Meaning RUS}} Rus: {{Meaning RUS}} {{/Meaning RUS}}
+	{{#Meaning}}<br>Eng: {{Meaning}} {{/Meaning}}
+      </div>
+
+    </div>
+  </div>
+</div>

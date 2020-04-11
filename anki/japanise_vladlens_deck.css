@@ -12,6 +12,10 @@ text-align: center; color: black;
 font-size: 30px
 }
 
+.stroke_order{
+font-family: KanjiStrokeOrders;
+}
+
 .win .jp {
 font-family: "MS Mincho", "ＭＳ 明朝";
 }
@@ -95,7 +99,6 @@ text-align: right;
 }
 
 .frontbg {
-
 border: 1px 1px 1px 0px black;
 background-color: #18adab;
 border-radius: 7px;
@@ -118,7 +121,6 @@ text-align: left;
 }
 
 .defbg {
-
 font-family: Raleway;
 font-style: italic;
 padding: 1px;
